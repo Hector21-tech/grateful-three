@@ -2,59 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Gratitude Journal Design System - Warm, mindful colors inspired by sunrise/sunset */
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
-    /* Background with warm gradient */
-    --background: 32 100% 98%;
-    --foreground: 25 15% 15%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    /* Cards with soft warm tones */
-    --card: 35 50% 97%;
-    --card-foreground: 25 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 35 50% 97%;
-    --popover-foreground: 25 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    /* Primary warm orange/yellow */
-    --primary: 35 85% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 45 95% 65%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Secondary soft peach */
-    --secondary: 25 65% 88%;
-    --secondary-foreground: 25 15% 15%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Muted warm grays */
-    --muted: 30 25% 92%;
-    --muted-foreground: 25 8% 45%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Accent golden */
-    --accent: 45 85% 75%;
-    --accent-foreground: 25 15% 15%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* Soft borders */
-    --border: 30 40% 88%;
-    --input: 30 40% 94%;
-    --ring: 35 85% 55%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
-    --radius: 0.75rem;
-
-    /* Custom gradients for backgrounds */
-    --gradient-warm: linear-gradient(135deg, hsl(35, 100%, 96%) 0%, hsl(45, 90%, 94%) 100%);
-    --gradient-sunrise: linear-gradient(180deg, hsl(45, 85%, 92%) 0%, hsl(35, 75%, 88%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(35, 50%, 97%) 0%, hsl(40, 40%, 95%) 100%);
-    
-    /* Shadows with warm tones */
-    --shadow-warm: 0 4px 20px -2px hsl(35, 50%, 80%, 0.15);
-    --shadow-card: 0 2px 12px -3px hsl(35, 40%, 70%, 0.12);
-    
-    /* Typography spacing */
-    --spacing-text: 1.5rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
