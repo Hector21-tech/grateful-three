@@ -1,0 +1,31 @@
+{
+  "name": "3 Saker Idag - Tacksamhetsdagbok",
+  "short_name": "3 Saker Idag",
+  "description": "En enkel tacksamhetsdagbok för att fokusera på det positiva i livet",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "categories": ["lifestyle", "productivity", "health"],
+  "lang": "sv",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

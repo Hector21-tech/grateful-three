@@ -49,18 +49,18 @@ export default function Settings() {
     <Layout>
       <div className="p-4 max-w-md mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold text-foreground mb-2">
-            Inställningar
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 shimmer">
+            ⚙️ Inställningar
           </h1>
-          <p className="text-muted-foreground">Anpassa din upplevelse</p>
+          <p className="text-gray-600 text-lg">Anpassa din upplevelse</p>
         </div>
 
         <div className="space-y-4">
           {/* Reminder Settings */}
-          <Card>
+          <Card className="glass-card border-white/30 shadow-medium hover-lift animate-in">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Bell className="w-5 h-5 text-primary" />
+              <CardTitle className="flex items-center gap-2 text-lg text-gray-800">
+                <Bell className="w-5 h-5 text-blue-500" />
                 Daglig påminnelse
               </CardTitle>
             </CardHeader>
@@ -90,13 +90,13 @@ export default function Settings() {
           </Card>
 
           {/* Pro Settings */}
-          <Card>
+          <Card className="glass-card border-white/30 shadow-medium hover-lift animate-in" style={{animationDelay: '0.1s'}}>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Crown className="w-5 h-5 text-primary" />
+              <CardTitle className="flex items-center gap-2 text-lg text-gray-800">
+                <Crown className="w-5 h-5 text-yellow-500" />
                 Pro-version
                 {isPro && (
-                  <Badge variant="secondary">
+                  <Badge className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
                     <Sparkles className="w-3 h-3 mr-1" />
                     Aktivt
                   </Badge>
@@ -121,14 +121,14 @@ export default function Settings() {
           </Card>
 
           {/* App Info */}
-          <Card>
+          <Card className="glass-card border-white/30 shadow-medium hover-lift animate-in" style={{animationDelay: '0.2s'}}>
             <CardContent className="pt-6">
               <div className="text-center space-y-2">
-                <h3 className="font-semibold">3 Saker Idag</h3>
-                <p className="text-sm text-muted-foreground">
+                <h3 className="font-semibold text-gray-800 text-xl">✨ 3 Saker Idag</h3>
+                <p className="text-sm text-gray-600">
                   En enkel tacksamhetsdagbok för att fokusera på det positiva i livet.
                 </p>
-                <Badge variant="outline">Version 1.0</Badge>
+                <Badge className="bg-gradient-to-r from-purple-400 to-pink-500 text-white px-3 py-1">Version 1.0</Badge>
               </div>
             </CardContent>
           </Card>

@@ -81,13 +81,34 @@ export const storage = {
     text += "=".repeat(25) + "\n\n";
 
     entries.forEach(entry => {
-      text += `Datum: ${entry.date}\n`;
+      const date = new Date(entry.date);
+      const formattedDate = date.toLocaleDateString("sv-SE", { 
+        weekday: "long", 
+        year: "numeric", 
+        month: "long", 
+        day: "numeric" 
+      });
+      text += `Datum: ${formattedDate}\n`;
       text += `1. ${entry.line1}\n`;
       text += `2. ${entry.line2}\n`;
       text += `3. ${entry.line3}\n`;
-      text += "-".repeat(20) + "\n\n";
+      text += "-".repeat(40) + "\n\n";
     });
 
+    text += `\nExporterad: ${new Date().toLocaleDateString("sv-SE")}\n`;
+    text += "Från 3 Saker Idag - Tacksamhetsdagbok\n";
+
     return text;
+  },
+
+  // Clear all data (for debugging/reset)
+  clearAll(): void {
+    localStorage.removeItem(STORAGE_KEY);
+  },
+
+  // Get storage size
+  getStorageSize(): number {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? new Blob([data]).size : 0;
   }
 };

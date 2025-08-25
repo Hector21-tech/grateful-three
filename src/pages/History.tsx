@@ -68,10 +68,10 @@ export default function History() {
     <Layout>
       <div className="p-4 max-w-md mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold text-foreground mb-2">
-            Historik
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 shimmer">
+            📜 Historik
           </h1>
-          <Badge variant="outline">
+          <Badge className="bg-gradient-to-r from-blue-400 to-purple-500 text-white px-4 py-2 shadow-medium">
             <Calendar className="w-4 h-4 mr-1" />
             {entries.length} inlägg
           </Badge>
@@ -84,33 +84,32 @@ export default function History() {
               placeholder="Sök i dina poster..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 bg-white/50 border-white/30 focus:bg-white/70 backdrop-blur-sm transition-all duration-200"
             />
           </div>
 
           <Button 
             onClick={handleExport}
-            variant="outline"
-            className="w-full"
+            className="w-full bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold py-3 shadow-medium hover:shadow-strong transition-all duration-200 hover-lift"
             disabled={entries.length === 0}
           >
             <Download className="w-4 h-4 mr-2" />
-            Exportera som .txt
+            💾 Exportera som .txt
           </Button>
         </div>
 
         <div className="space-y-3">
           {filteredEntries.length === 0 ? (
-            <Card>
+            <Card className="glass-card border-white/30 shadow-soft">
               <CardContent className="pt-6 text-center">
-                <p className="text-muted-foreground">
-                  {searchTerm ? "Inga matchande poster hittades." : "Inga poster ännu. Börja med att skriva något idag!"}
+                <p className="text-gray-600">
+                  {searchTerm ? "🔍 Inga matchande poster hittades." : "🌱 Inga poster ännu. Börja med att skriva något idag!"}
                 </p>
               </CardContent>
             </Card>
           ) : (
-            filteredEntries.map((entry) => (
-              <Card key={entry.id}>
+            filteredEntries.map((entry, index) => (
+              <Card key={entry.id} className="glass-card border-white/30 shadow-soft hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
                 <Collapsible>
                   <CollapsibleTrigger
                     onClick={() => toggleExpanded(entry.id)}

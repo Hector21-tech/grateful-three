@@ -34,10 +34,18 @@
     --input: 45 20% 85%;
     --ring: 35 55% 45%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --warm-gradient: linear-gradient(135deg, hsl(45 35% 88%), hsl(50 40% 92%));
-    --sunset-gradient: linear-gradient(135deg, hsl(35 55% 45%), hsl(45 50% 55%));
+    /* Enhanced gradients */
+    --warm-gradient: linear-gradient(135deg, hsl(45 60% 92%) 0%, hsl(35 50% 88%) 50%, hsl(25 40% 85%) 100%);
+    --sunset-gradient: linear-gradient(135deg, hsl(35 70% 60%) 0%, hsl(45 65% 65%) 50%, hsl(25 60% 55%) 100%);
+    --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+    --shimmer: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    
+    /* Modern shadows */
+    --shadow-soft: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-medium: 0 8px 32px rgba(0,0,0,0.12);
+    --shadow-strong: 0 16px 48px rgba(0,0,0,0.16);
   }
 
   .dark {
@@ -81,5 +89,138 @@
 
   body {
     @apply bg-background text-foreground;
+    /* iOS Safari viewport fix */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  /* Android optimizations */
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+@layer utilities {
+  /* Touch optimizations for mobile */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Safe area insets for devices with notches */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Prevent zoom on inputs for iOS */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  /* Better tap targets for mobile */
+  button, a, [role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Glassmorphism effects */
+  .glass-card {
+    background: var(--glass-gradient);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-warm {
+    background: var(--warm-gradient);
+  }
+
+  .gradient-sunset {
+    background: var(--sunset-gradient);
+  }
+
+  /* Enhanced shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Shimmer animation */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--shimmer);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Smooth animations */
+  .animate-in {
+    animation: slideInUp 0.3s ease-out;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+  }
+
+  /* Button enhancements */
+  .btn-gradient {
+    background: var(--sunset-gradient);
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn-gradient:hover::before {
+    opacity: 1;
   }
 }
