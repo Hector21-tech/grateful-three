@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Calendar, History, Settings } from "lucide-react";
+import { Calendar, History, Settings, Trophy } from "lucide-react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,6 +12,7 @@ export default function Layout({ children }: LayoutProps) {
   const navItems = [
     { path: "/", icon: Calendar, label: "Idag" },
     { path: "/history", icon: History, label: "Historik" },
+    { path: "/achievements", icon: Trophy, label: "Utmärkelser" },
     { path: "/settings", icon: Settings, label: "Inställningar" },
   ];
 
